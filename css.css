@@ -1,0 +1,265 @@
+/* -------- COLOR VARIABLES -------- */
+:root {
+    --bg: #f5f6fa;
+    --text: #333;
+    --header-bg: #1e272e;
+    --header-text: white;
+    --card-bg: white;
+    --footer-bg: #1e272e;
+    --accent: #f5c542;
+    --hero-gradient: linear-gradient(135deg, #2e86de, #48dbfb);
+}
+
+/* DARK MODE VARIABLES */
+body.dark {
+    --bg: #121212;
+    --text: #ffffff;
+    --header-bg: #000000;
+    --header-text: #f5c542;
+    --card-bg: #1a1a1a;
+    --footer-bg: #000000;
+    --hero-gradient: linear-gradient(135deg, #0f4c75, #3282b8);
+}
+
+/* -------- GLOBAL -------- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--header-text);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+nav .active {
+    color: var(--accent);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* DARK MODE BUTTON */
+#darkModeToggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--header-text);
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: var(--header-text);
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+#darkModeToggle:hover {
+    background: var(--header-text);
+    color: var(--header-bg);
+    transform: scale(1.05);
+}
+
+body.dark #darkModeToggle {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+body.dark #darkModeToggle:hover {
+    background: var(--accent);
+    color: var(--header-bg);
+}
+
+/* HERO */
+.hero {
+    padding: 100px 20px;
+    text-align: center;
+    background: var(--hero-gradient);
+    color: white;
+    margin-bottom: 40px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* SERVICES */
+.services {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px 0;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 30px 25px;
+    width: 280px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    color: var(--accent);
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+.card p {
+    color: var(--text);
+    opacity: 0.8;
+}
+
+/* METAL PAGES */
+.metal-page {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.metal-box {
+    width: 320px;
+    margin: 30px auto;
+    padding: 25px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.metal-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.price {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--accent);
+    margin: 15px 0;
+}
+
+.gold-box {
+    border-left: 8px solid gold;
+}
+
+.silver-box {
+    border-left: 8px solid silver;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--header-text);
+    padding: 25px;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .hero {
+        padding: 60px 20px;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .services {
+        gap: 20px;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    nav a {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+    
+    #darkModeToggle {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+}

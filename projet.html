@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceProject</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="icon" type="image/png" href="img.png">
+</head>
+<body>
+    <button id="darkModeToggle">🌙 Dark Mode</button>
+    
+    <header>
+        <h1>FinanceProject</h1>
+        <nav>
+            <a href="projet.html">Home</a>
+            <a href="gold.html">Gold</a>
+            <a href="silver.html">Silver</a>
+            <a href="bitcoin.html">Bitcoin</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Smart Finance for Everyone</h2>
+        <p>Track markets, manage your money, and plan your financial future with ease.</p>
+    </section>
+
+    <section class="services">
+        <div class="card">
+            <h3>Live Prices</h3>
+            <p>Track gold, silver, crypto and stock prices in real-time.</p>
+        </div>
+
+        <div class="card">
+            <h3>Analytics</h3>
+            <p>Smart tools to help you make financial decisions.</p>
+        </div>
+
+        <div class="card">
+            <h3>Secure Data</h3>
+            <p>Your information stays encrypted and protected.</p>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 FinanceProject — All Rights Reserved
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        
+        darkModeToggle.onclick = function() {
+            document.body.classList.toggle("dark");
+            
+            // Update button text
+            if (document.body.classList.contains("dark")) {
+                darkModeToggle.textContent = "☀️ Light Mode";
+                localStorage.setItem("theme", "dark");
+            } else {
+                darkModeToggle.textContent = "🌙 Dark Mode";
+                localStorage.setItem("theme", "light");
+            }
+        };
+
+        // Load saved theme
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+            darkModeToggle.textContent = "☀️ Light Mode";
+        }
+
+        // Set active navigation link
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('nav a');
+            
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage || 
+                   (currentPage === "" && linkPage === "index.html")) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
